@@ -104,7 +104,7 @@ GET https://api.miex.one/api/v1/public/assets?search=BTC&page=1
 Розрахунок курсу обміну
 
 ```
-POST https://api.miex.one/api/v1/public/swap/preview
+POST https://devgateway.miex.one/api/swap/public/preview
 ```
 
 **Payload:**
