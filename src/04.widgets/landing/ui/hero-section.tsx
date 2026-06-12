@@ -43,7 +43,7 @@ const HeroSection = () => {
 
   return (
     <section id="home" className="relative flex min-h-screen flex-col bg-[#fefefe] pt-22">
-      <div className="flex flex-1 flex-col items-center justify-center gap-10 px-5 py-16">
+      <div className="flex flex-1 flex-col items-center justify-end gap-6 px-5 pb-12 pt-16 sm:justify-center sm:gap-10 sm:py-16">
         <div className="relative w-full max-w-275">
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 24 }}
@@ -66,16 +66,22 @@ const HeroSection = () => {
             initial={{ opacity: 0, rotate: -24, scale: 0.6 }}
             animate={{ opacity: 1, rotate: 0, scale: 1 }}
             transition={{ delay: 0.5, type: "spring", stiffness: 200, damping: 14 }}
-            className="absolute -top-8 left-0 w-14 sm:-left-6 sm:w-23"
+            className="absolute -top-6 left-0 w-14 sm:-top-9 sm:-left-6 sm:w-23"
           />
 
           <motion.span
             initial={{ opacity: 0, y: 12, rotate: 6, scale: 0.8 }}
             animate={{ opacity: 1, y: 0, rotate: 0, scale: 1 }}
             transition={{ delay: 0.35, type: "spring", stiffness: 240, damping: 16 }}
-            className="absolute -top-5 right-2 rounded-full bg-[#bf57f3] px-4 py-1.5 text-sm font-medium text-[#fefefe] sm:right-10 sm:text-xl"
+            className="absolute -top-10 right-2 px-4 py-1.5 text-sm font-medium text-[#fefefe] sm:-top-12 sm:right-10 sm:text-xl"
           >
-            {t("pill")}
+            {/* Hand-drawn marker stroke from the mockup, stretched under the localized text */}
+            <img
+              src="/images/design/pill-doodle.svg"
+              alt=""
+              className="absolute inset-0 h-full w-full"
+            />
+            <span className="relative">{t("pill")}</span>
           </motion.span>
         </div>
 
@@ -83,7 +89,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.25, duration: 0.5, ease: "easeOut" }}
-          className="text-center text-lg font-medium text-[#181818] sm:text-xl"
+          className="text-center text-[15px] font-medium text-[#181818] sm:text-xl"
         >
           {t("subtitle")}
         </motion.p>

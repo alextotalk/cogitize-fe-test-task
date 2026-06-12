@@ -2,7 +2,7 @@
 
 import { LocaleSwitcher } from "@/07.shared/components";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Equal, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 
@@ -20,7 +20,10 @@ const LandingHeader = () => {
   return (
     <header className="absolute inset-x-0 top-0 z-40">
       <div className="mx-auto flex h-22 max-w-360 items-center justify-between px-5 sm:px-10">
-        <a href="#home" className="text-xl font-bold tracking-tight text-[#050505]">
+        <a
+          href="#home"
+          className="rounded-lg bg-[#efeeed]/40 px-4 py-2 text-xl font-bold leading-[26px] text-black"
+        >
           {t("brand")}
         </a>
 
@@ -48,9 +51,9 @@ const LandingHeader = () => {
             type="button"
             onClick={() => setIsMenuOpen(true)}
             aria-label={t("menu")}
-            className="grid h-10 w-10 place-items-center rounded-lg border border-[#d8d8d8] bg-white md:hidden"
+            className="grid h-10.5 w-10.5 place-items-center rounded-lg bg-[#efeeed]/40 md:hidden"
           >
-            <Menu className="h-5 w-5 text-[#050505]" />
+            <Equal className="h-5 w-5 text-[#050505]" />
           </button>
         </div>
       </div>
@@ -70,7 +73,7 @@ const LandingHeader = () => {
                 type="button"
                 onClick={() => setIsMenuOpen(false)}
                 aria-label={t("menu")}
-                className="grid h-10 w-10 place-items-center rounded-lg border border-[#d8d8d8]"
+                className="grid h-10.5 w-10.5 place-items-center rounded-lg bg-[#efeeed]/40"
               >
                 <X className="h-5 w-5 text-[#050505]" />
               </button>
