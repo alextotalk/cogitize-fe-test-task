@@ -15,6 +15,16 @@ const config = () => {
         },
       ];
     },
+    // api.miex.one does not send Access-Control-Allow-Origin, so the assets
+    // API is proxied through the app origin (devgateway allows CORS directly).
+    rewrites: async () => {
+      return [
+        {
+          source: "/api/miex/:path*",
+          destination: "https://api.miex.one/api/v1/public/:path*",
+        },
+      ];
+    },
     env: {},
     reactStrictMode: false,
     images: {

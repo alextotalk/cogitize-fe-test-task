@@ -1,1 +1,87 @@
-{}
+{
+  "swap": {
+    "heading": "Convert",
+    "title": "Select cryptocurrency",
+    "youSend": "You send",
+    "youReceive": "You Receive",
+    "amountPlaceholder": "0.00",
+    "swapSides": "Swap tokens",
+    "searchPlaceholder": "Search coins",
+    "noResults": "Nothing found",
+    "listError": "Failed to load coins",
+    "retry": "Retry",
+    "previewError": "Could not get the exchange rate. Please try again.",
+    "next": "Next",
+    "modal": {
+      "message": "You have successfully swapped {fromSymbol} {fromAmount} → {toSymbol} {toAmount}",
+      "ok": "OK"
+    }
+  },
+  "design": {
+    "brand": "PHASE",
+    "nav": {
+      "home": "Home",
+      "how": "How it works",
+      "features": "Features",
+      "whom": "For whom"
+    },
+    "login": "Log in",
+    "menu": "Menu",
+    "hero": {
+      "pill": "Independent minds only",
+      "subtitle": "Phase is your personal editorial storefront",
+      "cta": "Create you Phase"
+    },
+    "marquee": {
+      "identity": "YOUR IDENTITY",
+      "percent": "100%",
+      "free": "FREE FOREVER",
+      "share": "SHARE WITH YOUR AUDIENCE"
+    },
+    "mission": {
+      "kicker": "Creators inspire millions every single day",
+      "sticker": "Our mission",
+      "heading": "Phase is a space for creators to be seen",
+      "tagTribe": "Just you and your tribe",
+      "tagNoise": "Zero algorithm noise.",
+      "paragraph": "Only your raw concepts, your curated drops, and the community that stands by your side"
+    },
+    "steps": {
+      "heading": "Three steps to drops",
+      "tag": "It’s that simple",
+      "asideTitle": "Create, add, share.",
+      "asideText": "Everything you need to start receiving gifts without the friction",
+      "cardBrand": "Gifty",
+      "cardNumber": "01",
+      "cardTitle": "Create your account",
+      "cardText": "Sign up in under a minute. Claim your unique name and make the space yours."
+    },
+    "benefits": {
+      "exhibition": {
+        "title": "Exhibition",
+        "desc": "A premium editorial layout featuring your aesthetic",
+        "tag": "100% your DNA"
+      },
+      "capsules": {
+        "title": "Capsules",
+        "desc": "Publish, modify your capsule drops instantly.",
+        "tag": "No messy feeds"
+      },
+      "telemetry": {
+        "title": "Telemetry",
+        "desc": "Visitors get live updates on what’s currently available.",
+        "tag": "No missed drops"
+      },
+      "domain": {
+        "title": "Domain",
+        "desc": "A short, clean web address — phase.com/your-name.",
+        "tag": "Instant access"
+      },
+      "impact": {
+        "title": "Impact",
+        "desc": "Discover what your audience interacts with most.",
+        "tag": "Deep audience data"
+      }
+    }
+  }
+}

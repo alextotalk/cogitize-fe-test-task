@@ -1,8 +1,8 @@
-import store from "./store";
-
-type AppDispatch = typeof store.dispatch;
+import { store } from "./store";
 
 declare global {
-  export type RootState = ReturnType<typeof store.getState>;
-  export type AppDispatch = AppDispatch;
+  type RootState = ReturnType<typeof store.getState>;
+  type AppDispatch = typeof store.dispatch;
 }
+
+export {};
