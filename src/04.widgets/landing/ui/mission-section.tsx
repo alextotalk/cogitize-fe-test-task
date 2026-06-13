@@ -11,29 +11,55 @@ const MissionSection = () => {
   const words = t("heading").split(" ");
 
   return (
-    <section id="mission" className="relative overflow-hidden bg-[#efeeed] pt-20">
+    <section id="mission" className="relative h-[744px] overflow-hidden bg-[#efeeed] lg:h-[1010px] lg:pt-20">
       <motion.p
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={VIEWPORT}
+        animate={{ opacity: [0, 1] }}
         transition={{ duration: 0.5 }}
-        className="text-center text-base font-normal text-[#181818] sm:text-xl"
+        className="absolute left-1/2 top-10 w-[299px] -translate-x-1/2 text-center text-base font-normal leading-[21px] text-[#181818] lg:left-[calc(50vw-187px)] lg:top-[100px] lg:w-[373px] lg:translate-x-0 lg:text-xl lg:leading-6"
       >
         {t("kicker")}
       </motion.p>
 
-      <div className="relative mx-auto mt-6 w-full max-w-290 px-5">
-        <motion.img
-          src="/images/design/note-audience.png"
-          alt={t("sticker")}
-          initial={{ opacity: 0, scale: 0.6, rotate: -10 }}
-          whileInView={{ opacity: 1, scale: 1, rotate: -4 }}
-          viewport={VIEWPORT}
-          transition={{ type: "spring", stiffness: 220, damping: 15, delay: 0.4 }}
-          className="absolute left-[8%] top-0 z-10 w-27 -translate-y-1/2 sm:left-[13.5%] sm:w-34 lg:left-[24%] lg:w-44"
-        />
+      <motion.img
+        src="/images/design/note-audience.png"
+        alt={t("sticker")}
+        animate={{ opacity: [0, 1] }}
+        transition={{ duration: 0.45, delay: 0.4 }}
+        className="absolute left-[30px] top-[70px] z-30 h-[31px] w-[108px] lg:left-[421px] lg:top-[129px] lg:h-[52px] lg:w-[176px]"
+      />
 
-        <h2 className="relative z-0 mx-auto max-w-[930px] text-center text-[clamp(58px,9.5vw,132px)] font-extrabold uppercase leading-[0.8] text-[#050505] lg:tracking-[-0.01em]">
+      <div className="absolute left-0 top-0 h-[407px] w-full lg:relative lg:mx-auto lg:mt-6 lg:h-auto lg:max-w-290 lg:px-5">
+        <h2 className="absolute left-1/2 top-[89px] z-20 h-[230px] w-[335px] -translate-x-1/2 text-center text-[58px] font-extrabold uppercase leading-[0.8] text-[#050505] lg:relative lg:left-[7.5px] lg:top-[45px] lg:mx-auto lg:h-[424px] lg:w-[930px] lg:max-w-none lg:translate-x-0 lg:text-[132px] lg:tracking-[-0.01em]">
+          <span className="block lg:hidden">
+            {[
+              words.slice(0, 3),
+              words.slice(3, 5),
+              words.slice(5, 6),
+              words.slice(6, 8),
+              words.slice(8),
+            ].map((line, lineIndex) => (
+              <span key={`mobile-line-${lineIndex}`} className="block">
+                {line.map((word, wordIndex) => (
+                  <motion.span
+                    key={`${word}-${lineIndex}-${wordIndex}`}
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={VIEWPORT}
+                    transition={{
+                      duration: 0.5,
+                      ease: "easeOut",
+                      delay: 0.06 * (lineIndex + wordIndex),
+                    }}
+                    className="inline-block"
+                  >
+                    {word}
+                    {wordIndex < line.length - 1 ? " " : ""}
+                  </motion.span>
+                ))}
+              </span>
+            ))}
+          </span>
+          <span className="hidden lg:block">
           {words.map((word, index) => (
             <motion.span
               key={`${word}-${index}`}
@@ -47,6 +73,7 @@ const MissionSection = () => {
               {index < words.length - 1 ? " " : ""}
             </motion.span>
           ))}
+          </span>
         </h2>
 
         <motion.div
@@ -76,16 +103,6 @@ const MissionSection = () => {
         />
 
         <motion.img
-          src="/images/design/doodle-heart.svg"
-          alt=""
-          initial={{ opacity: 0, scale: 0.4 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={VIEWPORT}
-          transition={{ type: "spring", stiffness: 260, damping: 12, delay: 0.65 }}
-          className="absolute bottom-[6%] right-[10%] z-10 hidden w-17 lg:block"
-        />
-
-        <motion.img
           src="/images/design/doodle-arrow.svg"
           alt=""
           initial={{ opacity: 0, y: 16 }}
@@ -96,29 +113,36 @@ const MissionSection = () => {
         />
       </div>
 
-      <div className="relative mt-20 lg:-mt-9">
+      <motion.img
+        src="/images/design/doodle-heart.svg"
+        alt=""
+        animate={{ opacity: [0, 1] }}
+        transition={{ duration: 0.45, delay: 0.65 }}
+        className="absolute left-[249px] top-[342px] z-30 w-[51px] lg:left-[225px] lg:top-[491px] lg:w-[70px]"
+      />
+
+      <div className="absolute left-0 top-[391px] w-full lg:relative lg:top-auto lg:-mt-9">
         {/* Mobile: centered polaroid card between heading and photos. Desktop: left overlay on photos.
             Wrapper handles position so framer-motion's transform doesn't clobber the centering translate. */}
-        <div className="absolute -top-16 left-1/2 z-20 w-56 -translate-x-1/2 lg:left-[5%] lg:-top-10 lg:w-49 lg:translate-x-0">
+        <div className="absolute left-1/2 top-[-60px] z-20 h-[199px] w-[227px] -translate-x-1/2 lg:left-20 lg:top-0 lg:h-auto lg:w-[197px] lg:translate-x-0">
           <motion.div
-            initial={{ opacity: 0, y: 32, rotate: -6 }}
-            whileInView={{ opacity: 1, y: 0, rotate: -3 }}
-            viewport={VIEWPORT}
-            transition={{ duration: 0.55, delay: 0.2 }}
+            animate={{ opacity: [0, 1], x: [-32, 0] }}
+            transition={{ duration: 0.55, delay: 0.2, ease: "easeOut" }}
+            className="h-full lg:h-auto"
           >
             <Image
               src="/images/design/polaroid-fairy.png"
               alt=""
               width={394}
               height={414}
-              className="h-auto w-full drop-shadow-2xl"
+              className="h-full w-full lg:h-auto"
             />
           </motion.div>
         </div>
 
         <div className="relative">
-          <div className="flex h-88 sm:h-118">
-            <div className="relative w-1/2">
+          <div className="flex h-[353px] lg:h-118">
+            <div className="relative w-[189px] lg:w-1/2">
               <Image
                 src="/images/design/mission-photo-1.webp"
                 alt=""
@@ -130,7 +154,7 @@ const MissionSection = () => {
               <div aria-hidden className="absolute inset-0 bg-black/20" />
             </div>
             {/* Desktop: right photo is shorter and bottom-aligned (Figma Rectangle 65, inset ~77px). Mobile: equal halves. */}
-            <div className="relative w-1/2 lg:h-[84%] lg:self-end">
+            <div className="relative flex-1 lg:w-1/2 lg:flex-none lg:h-[84%] lg:self-end">
               <Image
                 src="/images/design/mission-photo-2.webp"
                 alt=""
@@ -144,33 +168,31 @@ const MissionSection = () => {
           {/* Curved transition from the section background into the photos. */}
           <div
             aria-hidden
-            className="absolute -top-px left-1/2 h-16 w-[160%] -translate-x-1/2 bg-[#efeeed] lg:h-34"
+            className="absolute left-1/2 top-[-241px] h-[257px] w-[1210px] -translate-x-1/2 bg-[#efeeed] lg:-top-px lg:h-34 lg:w-[160%]"
             style={{ borderRadius: "0 0 100% 100% / 0 0 100% 100%" }}
           />
 
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={VIEWPORT}
+            animate={{ opacity: [0, 1] }}
             transition={{ duration: 0.55, delay: 0.35 }}
-            className="absolute left-[6%] top-[50%] z-10 flex max-w-91 flex-col items-start gap-1 sm:top-[63%]"
+            className="absolute left-5 top-[177px] z-10 flex w-[339px] max-w-none flex-col items-start gap-0 lg:left-[6%] lg:top-[63%] lg:max-w-91 lg:gap-1"
           >
             {/* Figma tags are tilted marker highlights (#ffd000), not solid pills */}
-            <span className="relative w-fit -rotate-2 text-base font-medium leading-snug text-[#181818] sm:text-xl">
+            <span className="relative mb-1 w-fit -rotate-2 text-base font-medium leading-snug text-[#181818] sm:text-xl lg:mb-0">
               <span
                 aria-hidden
                 className="absolute inset-x-[-6px] inset-y-[2px] -z-10 bg-[#ffd000]"
               />
               {t("tagTribe")}
             </span>
-            <span className="relative w-fit rotate-1 text-base font-medium leading-snug text-[#181818] sm:text-xl">
+            <span className="relative mb-3 w-fit rotate-1 text-base font-medium leading-snug text-[#181818] sm:text-xl lg:mb-0">
               <span
                 aria-hidden
                 className="absolute inset-x-[-6px] inset-y-[2px] -z-10 bg-[#ffd000]"
               />
               {t("tagNoise")}
             </span>
-            <p className="mt-3 text-xl font-medium leading-[1.2] text-[#fefefe] drop-shadow-md">
+            <p className="text-xl font-medium leading-[1.2] text-[#fefefe] drop-shadow-md lg:mt-3">
               {t("paragraph")}
             </p>
           </motion.div>
