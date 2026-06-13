@@ -19,7 +19,7 @@ const LandingHeader = () => {
 
   return (
     <header className="absolute inset-x-0 top-0 z-40">
-      <div className="mx-auto flex h-22 max-w-360 items-center justify-between px-5 sm:px-10">
+      <div className="mx-auto flex h-[74px] max-w-360 items-center justify-between px-5 sm:px-20 md:h-[90px]">
         <a
           href="#home"
           className="rounded-lg bg-[#efeeed]/40 px-4 py-2 text-xl font-bold leading-[26px] text-black"
@@ -27,12 +27,12 @@ const LandingHeader = () => {
           {t("brand")}
         </a>
 
-        <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 rounded-full border border-[#e4e4e4] bg-white/70 px-2 py-1 backdrop-blur md:flex">
+        <nav className="hidden items-center md:flex">
           {NAV_ITEMS.map((item) => (
             <a
               key={item.key}
               href={item.href}
-              className="rounded-full px-4 py-2 text-sm font-medium text-[#181818] transition-colors hover:bg-black/5"
+              className="rounded-lg bg-[#efeeed]/40 px-4 py-3 text-sm font-medium leading-[18px] text-[#181818] transition-colors hover:bg-[#efeeed]/70"
             >
               {t(`nav.${item.key}`)}
             </a>
@@ -40,10 +40,12 @@ const LandingHeader = () => {
         </nav>
 
         <div className="flex items-center gap-3">
-          <LocaleSwitcher variant="light" />
+          <div className="hidden md:block">
+            <LocaleSwitcher variant="light" />
+          </div>
           <button
             type="button"
-            className="hidden h-10 items-center rounded-lg border border-[#d8d8d8] bg-white px-5 text-base font-medium text-[#050505] transition-colors hover:bg-black/5 md:flex"
+            className="hidden h-10.5 items-center rounded-lg border border-[#050505] px-5 text-base font-medium text-[#050505] transition-colors hover:bg-black/5 md:flex"
           >
             {t("login")}
           </button>
@@ -53,7 +55,7 @@ const LandingHeader = () => {
             aria-label={t("menu")}
             className="grid h-10.5 w-10.5 place-items-center rounded-lg bg-[#efeeed]/40 md:hidden"
           >
-            <Equal className="h-5 w-5 text-[#050505]" />
+            <Equal className="h-6 w-6 text-[#050505]" />
           </button>
         </div>
       </div>
@@ -95,12 +97,15 @@ const LandingHeader = () => {
               ))}
             </nav>
 
-            <button
-              type="button"
-              className="mt-auto h-12 rounded-lg bg-[#ffd000] text-base font-medium text-[#050505]"
-            >
-              {t("login")}
-            </button>
+            <div className="mt-auto flex flex-col items-start gap-4">
+              <LocaleSwitcher variant="light" />
+              <button
+                type="button"
+                className="h-12 w-full rounded-lg bg-[#ffd000] text-base font-medium text-[#050505]"
+              >
+                {t("login")}
+              </button>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

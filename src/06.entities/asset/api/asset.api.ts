@@ -1,10 +1,8 @@
+import { baseApi } from "@/07.shared/api";
 import { ASSETS_API_URL } from "@/07.shared/const";
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { AssetsPage } from "../model";
 
-export const assetApi = createApi({
-  reducerPath: "assetApi",
-  baseQuery: fetchBaseQuery({ baseUrl: ASSETS_API_URL }),
+export const assetApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     getAssets: build.infiniteQuery<AssetsPage, string, number>({
       infiniteQueryOptions: {
@@ -13,7 +11,7 @@ export const assetApi = createApi({
           lastPage.hasNextPage ? lastPage.currentPage + 1 : undefined,
       },
       query: ({ queryArg, pageParam }) => ({
-        url: "/assets",
+        url: `${ASSETS_API_URL}/assets`,
         params: queryArg
           ? { search: queryArg, page: pageParam }
           : { page: pageParam },

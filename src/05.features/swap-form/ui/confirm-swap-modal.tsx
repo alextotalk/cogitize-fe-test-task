@@ -42,16 +42,16 @@ const ConfirmSwapModal = ({
             exit={{ opacity: 0, y: 24, scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300, damping: 26 }}
             onClick={(event) => event.stopPropagation()}
-            className="flex w-full max-w-90 flex-col items-center gap-5 rounded-3xl bg-[#1d1d1d] p-8 text-center"
+            className="flex w-full max-w-90 flex-col items-center gap-5 rounded-3xl bg-surface p-8 text-center"
           >
-            <CheckCircle2 className="h-12 w-12 text-[#05d533]" />
-            <p className="text-lg font-medium leading-snug text-[#f1f1f1]">
+            <CheckCircle2 className="h-12 w-12 text-brand" />
+            <p className="text-lg font-medium leading-snug text-content-primary">
               {t("message", { fromSymbol, fromAmount, toSymbol, toAmount })}
             </p>
             <button
               type="button"
               onClick={onClose}
-              className="h-10 w-full rounded-lg bg-[#05d533] font-medium text-[#050505] transition-colors hover:bg-[#04c02e]"
+              className="h-10 w-full rounded-lg bg-brand font-medium text-ink transition-colors hover:bg-brand-hover"
             >
               {t("ok")}
             </button>

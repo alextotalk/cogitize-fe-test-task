@@ -27,12 +27,12 @@ const SwapWidget = () => {
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45, ease: "easeOut" }}
-      className="flex w-full max-w-125 flex-col gap-6 rounded-3xl bg-[#1d1d1d] p-6 sm:p-10"
+      className="flex w-full max-w-125 flex-col gap-8 rounded-3xl bg-surface p-6 sm:p-10"
     >
-      <div className="flex flex-col gap-4">
-        <h2 className="text-xl font-medium text-[#f1f1f1]">{t("title")}</h2>
+      <div className="flex flex-col gap-3">
+        <h2 className="text-xl font-medium leading-[1.2] text-content-primary">{t("title")}</h2>
 
-        <div className="rounded-[20px] border border-[#272727] px-5 py-6">
+        <div className="flex flex-col gap-1 rounded-[20px] border border-surface-raised p-5">
           <AmountField
             label={t("youSend")}
             asset={fromAsset}
@@ -72,7 +72,7 @@ const SwapWidget = () => {
         type="button"
         disabled={!canConfirm}
         onClick={openConfirm}
-        className="h-10 rounded-lg bg-[#05d533] text-base font-medium text-[#050505] transition-all hover:bg-[#04c02e] disabled:cursor-not-allowed disabled:opacity-40"
+        className="h-10 rounded-lg bg-brand text-base font-medium text-ink shadow-[inset_0_2px_4px_rgba(238,255,241,0.25)] transition-all hover:bg-brand-hover disabled:cursor-not-allowed disabled:opacity-40"
       >
         {t("next")}
       </button>

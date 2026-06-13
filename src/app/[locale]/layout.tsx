@@ -1,16 +1,23 @@
 import { locales, routing } from "@/i18n";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { Inter } from "next/font/google";
+import { Geist, Inter } from "next/font/google";
 import { notFound } from "next/navigation";
 import { Toaster } from "sonner";
 import { AppLayout } from "../layouts";
-import { ReduxProvider, ThemeProvider } from "../providers";
+import { ReduxProvider } from "../providers";
 import "../styles/globals.css";
 
 const INTER = Inter({
   weight: ["100", "300", "400", "500", "700", "900"],
   variable: "--font-inter",
   subsets: ["cyrillic-ext", "latin-ext"],
+});
+
+// Geist is the design's typeface (Figma). Variable font → all weights, incl. ExtraBold (800).
+// Inter stays as the Cyrillic fallback (Geist has no Cyrillic subset).
+const GEIST = Geist({
+  variable: "--font-geist",
+  subsets: ["latin", "latin-ext"],
 });
 
 //fake
@@ -35,18 +42,12 @@ const RootLayout = async ({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${INTER.variable} min-h-screen flex flex-col`}>
+      <body
+        className={`${GEIST.variable} ${INTER.variable} font-sans flex min-h-screen flex-col`}
+      >
         <NextIntlClientProvider>
           <ReduxProvider>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange
-            >
-              <AppLayout>{children}</AppLayout>
-            </ThemeProvider>
-            {/* dont set z-index 10000000000000! */}
+            <AppLayout>{children}</AppLayout>
             <Toaster />
           </ReduxProvider>
         </NextIntlClientProvider>

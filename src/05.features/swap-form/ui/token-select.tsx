@@ -44,15 +44,15 @@ const TokenSelect = ({ asset, onSelect }: TokenSelectProps) => {
       >
         <AssetIcon asset={asset} size={24} />
         <span className="flex flex-col">
-          <span className="flex items-center gap-1 text-2xl font-semibold leading-tight text-[#f1f1f1]">
+          <span className="flex items-center gap-2 text-2xl font-semibold leading-tight text-content-primary">
             {asset.symbol}
             <ChevronDown
-              className={`h-5 w-5 text-[#d1d1d1] transition-transform duration-200 ${
+              className={`h-6 w-6 text-content-secondary transition-transform duration-200 ${
                 isOpen ? "rotate-180" : ""
               }`}
             />
           </span>
-          <span className="text-sm leading-tight text-[#d1d1d1]">{asset.name}</span>
+          <span className="text-sm leading-tight text-content-secondary">{asset.name}</span>
         </span>
       </button>
 
@@ -63,16 +63,16 @@ const TokenSelect = ({ asset, onSelect }: TokenSelectProps) => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.97 }}
             transition={{ duration: 0.18, ease: "easeOut" }}
-            className="absolute left-0 top-full z-30 mt-2 w-[232px] rounded-xl bg-[#f9f9f9] p-3 shadow-[0_12px_32px_rgba(0,0,0,0.45)]"
+            className="absolute left-0 top-full z-30 mt-2 w-[232px] rounded-xl border border-content-secondary bg-panel p-3 shadow-[0_2px_6px_rgba(0,0,0,0.1)]"
           >
-            <label className="mb-2 flex h-10 items-center gap-2 rounded-lg border border-[#e3e3e3] bg-[#f9f9f9] px-3 focus-within:border-[#b0b0b0]">
-              <Search className="h-5 w-5 shrink-0 text-[#b0b0b0]" />
+            <label className="mb-2 flex h-10 items-center gap-2 rounded-lg border border-content-secondary bg-panel px-3 focus-within:border-panel-ring">
+              <Search className="h-5 w-5 shrink-0 text-panel-ring" />
               <input
                 autoFocus
                 value={search}
                 onChange={(event) => setSearch(event.target.value)}
                 placeholder={t("searchPlaceholder")}
-                className="w-full bg-transparent text-base text-[#050505] outline-none placeholder:text-[#b0b0b0]"
+                className="w-full bg-transparent text-base text-ink outline-none placeholder:text-panel-ring"
               />
             </label>
 
@@ -83,17 +83,17 @@ const TokenSelect = ({ asset, onSelect }: TokenSelectProps) => {
             >
               {isListLoading && (
                 <li className="flex justify-center py-6">
-                  <Loader2 className="h-5 w-5 animate-spin text-[#6d6d6d]" />
+                  <Loader2 className="h-5 w-5 animate-spin text-content-muted" />
                 </li>
               )}
 
               {!isListLoading && isError && (
                 <li className="flex flex-col items-center gap-2 py-4 text-center">
-                  <span className="text-sm text-[#6d6d6d]">{t("listError")}</span>
+                  <span className="text-sm text-content-muted">{t("listError")}</span>
                   <button
                     type="button"
                     onClick={() => refetch()}
-                    className="text-sm font-medium text-[#050505] underline"
+                    className="text-sm font-medium text-ink underline"
                   >
                     {t("retry")}
                   </button>
@@ -101,7 +101,7 @@ const TokenSelect = ({ asset, onSelect }: TokenSelectProps) => {
               )}
 
               {!isListLoading && !isError && assets.length === 0 && (
-                <li className="py-4 text-center text-sm text-[#6d6d6d]">
+                <li className="py-4 text-center text-sm text-content-muted">
                   {t("noResults")}
                 </li>
               )}
@@ -118,10 +118,10 @@ const TokenSelect = ({ asset, onSelect }: TokenSelectProps) => {
                       className="flex h-11 w-full items-center gap-2 rounded-lg px-1.5 transition-colors hover:bg-black/5"
                     >
                       <AssetIcon asset={item} size={24} />
-                      <span className="truncate text-base font-medium text-[#050505]">
+                      <span className="truncate text-base font-medium text-ink">
                         {item.symbol}
                       </span>
-                      <span className="ml-auto max-w-[90px] truncate text-xs text-[#9a9a9a]">
+                      <span className="ml-auto max-w-[90px] truncate text-xs text-content-faint">
                         {item.name}
                       </span>
                     </button>
@@ -130,7 +130,7 @@ const TokenSelect = ({ asset, onSelect }: TokenSelectProps) => {
 
               {isFetchingNextPage && (
                 <li className="flex justify-center py-2">
-                  <Loader2 className="h-4 w-4 animate-spin text-[#6d6d6d]" />
+                  <Loader2 className="h-4 w-4 animate-spin text-content-muted" />
                 </li>
               )}
             </ul>

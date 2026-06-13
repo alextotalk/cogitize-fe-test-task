@@ -33,4 +33,12 @@ export default defineConfig([{
     rules: {
         "import/no-internal-modules": "off",
     },
+}, {
+    // Build/tooling config files run outside the app source rules.
+    files: ["**/*.config.{js,mjs,ts}"],
+
+    rules: {
+        "import/no-internal-modules": "off",
+        "@typescript-eslint/no-require-imports": "off",
+    },
 }]);

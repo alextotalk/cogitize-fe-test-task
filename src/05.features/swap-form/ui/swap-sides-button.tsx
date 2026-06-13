@@ -19,7 +19,7 @@ const SwapSidesButton = ({ onClick, label }: SwapSidesButtonProps) => {
 
   return (
     <div className="relative flex h-11 items-center">
-      <div className="h-px w-full bg-[#e7e7e7]" />
+      <div className="h-px w-full bg-hairline-light" />
       <motion.button
         type="button"
         onClick={handleClick}
@@ -27,9 +27,11 @@ const SwapSidesButton = ({ onClick, label }: SwapSidesButtonProps) => {
         animate={{ rotate: spins * 180 }}
         transition={{ type: "spring", stiffness: 320, damping: 22 }}
         aria-label={label}
-        className="absolute right-0 grid h-11 w-11 place-items-center rounded-full bg-[#272727] transition-colors hover:bg-[#323232]"
+        // 20px inset from the right edge, matching Figma (left:316 in a 380 frame)
+        style={{ right: "20px" }}
+        className="absolute grid h-11 w-11 place-items-center rounded-full bg-surface-raised transition-colors hover:bg-surface-hover"
       >
-        <ArrowDownUp className="h-5 w-5 text-[#05d533]" />
+        <ArrowDownUp className="h-6 w-6 text-brand" />
       </motion.button>
     </div>
   );

@@ -10,6 +10,9 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
+  --font-sans: var(--font-geist), var(--font-inter), ui-sans-serif, system-ui,
+    sans-serif;
+
   --breakpoint-tablet: 768px;
   --breakpoint-laptop: 1280px;
   --breakpoint-desktop: 1920px;
@@ -44,17 +47,28 @@
   --color-chart-4: hsl(43 74% 66%);
   --color-chart-5: hsl(27 87% 67%);
 
+  /* Swap widget / brand palette — replaces repeated arbitrary hex values */
+  --color-ink: #050505;
+  --color-surface: #1d1d1d;
+  --color-surface-2: #181818;
+  --color-surface-raised: #272727;
+  --color-surface-hover: #323232;
+  --color-content-primary: #f1f1f1;
+  --color-content-secondary: #d1d1d1;
+  --color-content-muted: #6d6d6d;
+  --color-brand: #05d533;
+  --color-brand-hover: #04c02e;
+
+  /* Light token-select dropdown surface */
+  --color-panel: #f9f9f9;
+  --color-panel-border: #e3e3e3;
+  --color-panel-ring: #b0b0b0;
+  --color-content-faint: #9a9a9a;
+  --color-hairline-light: #e7e7e7;
+
   --screens-hover: {
     raw: "(hover: hover)";
   };
-}
-
-.dark {
-  --color-primary: yellow; /* color for dark */
-}
-
-:root {
-  /* for variables  not use tailwind classes */
 }
 
 @keyframes marquee {

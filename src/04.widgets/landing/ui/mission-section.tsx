@@ -17,7 +17,7 @@ const MissionSection = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={VIEWPORT}
         transition={{ duration: 0.5 }}
-        className="text-center text-lg font-normal text-[#181818] sm:text-xl"
+        className="text-center text-base font-normal text-[#181818] sm:text-xl"
       >
         {t("kicker")}
       </motion.p>
@@ -30,10 +30,10 @@ const MissionSection = () => {
           whileInView={{ opacity: 1, scale: 1, rotate: -4 }}
           viewport={VIEWPORT}
           transition={{ type: "spring", stiffness: 220, damping: 15, delay: 0.4 }}
-          className="absolute left-[28%] top-0 z-10 hidden w-44 -translate-y-1/2 md:block"
+          className="absolute left-[8%] top-0 z-10 w-27 -translate-y-1/2 sm:left-[13.5%] sm:w-34 lg:left-[24%] lg:w-44"
         />
 
-        <h2 className="relative z-0 mx-auto max-w-235 text-center text-[clamp(44px,9.5vw,132px)] font-extrabold uppercase leading-[0.96] tracking-tight text-[#050505]">
+        <h2 className="relative z-0 mx-auto max-w-[930px] text-center text-[clamp(58px,9.5vw,132px)] font-extrabold uppercase leading-[0.8] text-[#050505] lg:tracking-[-0.01em]">
           {words.map((word, index) => (
             <motion.span
               key={`${word}-${index}`}
@@ -50,11 +50,11 @@ const MissionSection = () => {
         </h2>
 
         <motion.div
-          initial={{ opacity: 0, y: 24, rotate: 10 }}
-          whileInView={{ opacity: 1, y: 0, rotate: 5 }}
+          initial={{ opacity: 0, y: 24, rotate: 6 }}
+          whileInView={{ opacity: 1, y: 0, rotate: 0 }}
           viewport={VIEWPORT}
           transition={{ duration: 0.55, delay: 0.3 }}
-          className="absolute -top-8 right-[4%] z-10 hidden w-39 lg:block"
+          className="absolute right-[4%] top-[101px] z-10 hidden w-48 lg:block"
         >
           <Image
             src="/images/design/polaroid-girl.png"
@@ -72,7 +72,7 @@ const MissionSection = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={VIEWPORT}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="absolute right-[2%] top-[38%] z-10 hidden w-36 lg:block"
+          className="absolute right-[-1%] top-[46%] z-10 hidden w-36 lg:block"
         />
 
         <motion.img
@@ -96,25 +96,28 @@ const MissionSection = () => {
         />
       </div>
 
-      <div className="relative mt-20">
-        <motion.div
-          initial={{ opacity: 0, y: 32, rotate: -6 }}
-          whileInView={{ opacity: 1, y: 0, rotate: -3 }}
-          viewport={VIEWPORT}
-          transition={{ duration: 0.55, delay: 0.2 }}
-          className="absolute -top-24 left-[4%] z-20 w-40 sm:w-49"
-        >
-          <Image
-            src="/images/design/polaroid-fairy.png"
-            alt=""
-            width={394}
-            height={414}
-            className="h-auto w-full drop-shadow-2xl"
-          />
-        </motion.div>
+      <div className="relative mt-20 lg:-mt-9">
+        {/* Mobile: centered polaroid card between heading and photos. Desktop: left overlay on photos.
+            Wrapper handles position so framer-motion's transform doesn't clobber the centering translate. */}
+        <div className="absolute -top-16 left-1/2 z-20 w-56 -translate-x-1/2 lg:left-[5%] lg:-top-10 lg:w-49 lg:translate-x-0">
+          <motion.div
+            initial={{ opacity: 0, y: 32, rotate: -6 }}
+            whileInView={{ opacity: 1, y: 0, rotate: -3 }}
+            viewport={VIEWPORT}
+            transition={{ duration: 0.55, delay: 0.2 }}
+          >
+            <Image
+              src="/images/design/polaroid-fairy.png"
+              alt=""
+              width={394}
+              height={414}
+              className="h-auto w-full drop-shadow-2xl"
+            />
+          </motion.div>
+        </div>
 
         <div className="relative">
-          <div className="flex h-75 sm:h-118">
+          <div className="flex h-88 sm:h-118">
             <div className="relative w-1/2">
               <Image
                 src="/images/design/mission-photo-1.webp"
@@ -123,8 +126,11 @@ const MissionSection = () => {
                 sizes="50vw"
                 className="object-cover"
               />
+              {/* 20% darkening on the left photo (Figma Rectangle 66) for text legibility */}
+              <div aria-hidden className="absolute inset-0 bg-black/20" />
             </div>
-            <div className="relative w-1/2">
+            {/* Desktop: right photo is shorter and bottom-aligned (Figma Rectangle 65, inset ~77px). Mobile: equal halves. */}
+            <div className="relative w-1/2 lg:h-[84%] lg:self-end">
               <Image
                 src="/images/design/mission-photo-2.webp"
                 alt=""
@@ -138,7 +144,7 @@ const MissionSection = () => {
           {/* Curved transition from the section background into the photos. */}
           <div
             aria-hidden
-            className="absolute -top-px left-1/2 h-30 w-[160%] -translate-x-1/2 bg-[#efeeed]"
+            className="absolute -top-px left-1/2 h-16 w-[160%] -translate-x-1/2 bg-[#efeeed] lg:h-34"
             style={{ borderRadius: "0 0 100% 100% / 0 0 100% 100%" }}
           />
 
@@ -147,15 +153,24 @@ const MissionSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={VIEWPORT}
             transition={{ duration: 0.55, delay: 0.35 }}
-            className="absolute left-[6%] top-[30%] z-10 flex max-w-91 flex-col items-start gap-3 sm:top-[26%]"
+            className="absolute left-[6%] top-[50%] z-10 flex max-w-91 flex-col items-start gap-1 sm:top-[63%]"
           >
-            <span className="rounded-md bg-[#ffd000] px-3 py-1 text-base font-medium text-[#181818] sm:text-xl">
+            {/* Figma tags are tilted marker highlights (#ffd000), not solid pills */}
+            <span className="relative w-fit -rotate-2 text-base font-medium leading-snug text-[#181818] sm:text-xl">
+              <span
+                aria-hidden
+                className="absolute inset-x-[-6px] inset-y-[2px] -z-10 bg-[#ffd000]"
+              />
               {t("tagTribe")}
             </span>
-            <span className="rounded-md bg-[#bf57f3] px-3 py-1 text-base font-medium text-[#fefefe] sm:text-xl">
+            <span className="relative w-fit rotate-1 text-base font-medium leading-snug text-[#181818] sm:text-xl">
+              <span
+                aria-hidden
+                className="absolute inset-x-[-6px] inset-y-[2px] -z-10 bg-[#ffd000]"
+              />
               {t("tagNoise")}
             </span>
-            <p className="mt-2 text-base font-medium leading-snug text-[#fefefe] drop-shadow-md sm:text-xl">
+            <p className="mt-3 text-xl font-medium leading-[1.2] text-[#fefefe] drop-shadow-md">
               {t("paragraph")}
             </p>
           </motion.div>
