@@ -20,13 +20,9 @@ const GEIST = Geist({
   subsets: ["latin", "latin-ext"],
 });
 
-//fake
-
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
-
-// fake
 
 const RootLayout = async ({
   children,
@@ -41,7 +37,7 @@ const RootLayout = async ({
   }
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <body
         className={`${GEIST.variable} ${INTER.variable} font-sans flex min-h-screen flex-col`}
       >

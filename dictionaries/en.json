@@ -52,9 +52,23 @@
       "asideTitle": "Create, add, share.",
       "asideText": "Everything you need to start receiving gifts without the friction",
       "cardBrand": "Gifty",
-      "cardNumber": "01",
-      "cardTitle": "Create your account",
-      "cardText": "Sign up in under a minute. Claim your unique name and make the space yours."
+      "cards": [
+        {
+          "number": "01",
+          "title": "Create your account",
+          "text": "Sign up in under a minute. Claim your unique name and make the space yours."
+        },
+        {
+          "number": "02",
+          "title": "Add your wishes",
+          "text": "Create lots: add a photo, title, price, and link to the item. Dream big — from a cup of coffee to a brand-new microphone."
+        },
+        {
+          "number": "03",
+          "title": "Share with your fans",
+          "text": "Copy your link and drop it in your bio, stories, or video description. Fans visit your storefront and gift you exactly what you want."
+        }
+      ]
     },
     "benefits": {
       "exhibition": {

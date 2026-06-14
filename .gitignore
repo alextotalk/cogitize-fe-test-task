@@ -35,3 +35,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 /.figma/
+
+# AI assistant / Claude Code
+/CLAUDE.md
+/.claude/
+/.agents/
+/.codex/
